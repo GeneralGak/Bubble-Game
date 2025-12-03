@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Test : MonoBehaviour, IPoolable
+public class Test : Poolable
 {
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -14,7 +14,7 @@ public class Test : MonoBehaviour, IPoolable
         
     }
 
-	public void ResetObject()
+	public override void ResetObject()
 	{
 		Debug.Log("Works");
 	}

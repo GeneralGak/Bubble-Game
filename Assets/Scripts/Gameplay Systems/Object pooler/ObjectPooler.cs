@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public interface IPoolable
+public abstract class Poolable : MonoBehaviour
 {
     public abstract void ResetObject();
 }
@@ -15,9 +15,9 @@ public class ObjectPooler : MonoBehaviour
     private Stack<GameObject> pooledObjects = new Stack<GameObject>();
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Create a group of objects at start
         for (int i = 0; i < AmountToPool; i++)
         {
 			GameObject newPooledObject = Instantiate(objectToPool);
@@ -48,13 +48,16 @@ public class ObjectPooler : MonoBehaviour
 		return pooledObject;
     }
 
-    public void AddObjectToPool(GameObject _poolableObject)
+    public void RemoveToPool(GameObject _poolableObject)
     {
         pooledObjects.Push(_poolableObject);
 
 		_poolableObject.SetActive(false);
-		IPoolable poolableComponent = _poolableObject.GetComponent<IPoolable>();
 
-        if (poolableComponent == null) poolableComponent.ResetObject();
+		Poolable[] poolableComponents = _poolableObject.GetComponents<Poolable>();
+        for (int i = 0; i < poolableComponents.Length; i++)
+        {
+            poolableComponents[i].ResetObject();
+		}
 	}
 }
