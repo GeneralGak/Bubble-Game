@@ -1,9 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GameHUD.uss?fileID=7433441132597879392&amp;guid=612448082c967c54abe63776bfd60dea&amp;type=3#GameHUD" />
+    <ui:VisualElement name="main" style="flex-grow: 1; right: auto; left: auto; width: 15%; border-right-width: 8px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-right-color: rgb(59, 92, 190); padding-top: 20px; justify-content: center; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+        <ui:VisualElement name="back" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 20px; padding-left: 0; justify-content: flex-start;">
+            <ui:Button text="Back" name="backButton" style="align-self: auto; justify-content: flex-start; align-items: stretch; background-color: rgb(188, 183, 139);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="text" style="flex-grow: 1; padding-top: 20px; padding-bottom: 20px;">
+            <ui:TextField label="Text Field" placeholder-text="filler text" style="background-color: rgb(139, 188, 187); flex-grow: 1; align-self: auto; justify-content: flex-start; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: middle-left;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="effects" style="flex-grow: 1; justify-content: flex-end; -unity-text-align: upper-left; padding-top: 20px;">
+            <ui:Button text="Music" name="music" style="background-color: rgb(146, 188, 139);" />
+            <ui:Button text="Sound" name="sound" style="background-color: rgb(162, 139, 188);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
