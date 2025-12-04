@@ -4,8 +4,8 @@
         <ui:VisualElement name="back" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 20px; padding-left: 0; justify-content: flex-start;">
             <ui:Button text="Back" name="backButton" style="align-self: auto; justify-content: flex-start; align-items: stretch; background-color: rgb(188, 183, 139);" />
         </ui:VisualElement>
-        <ui:VisualElement name="text" style="flex-grow: 1; padding-top: 20px; padding-bottom: 20px;">
-            <ui:TextField label="Text Field" placeholder-text="filler text" style="background-color: rgb(139, 188, 187); flex-grow: 1; align-self: auto; justify-content: flex-start; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: middle-left;" />
+        <ui:VisualElement name="text" style="flex-grow: 1; padding-top: 0; padding-bottom: 0; background-color: rgb(139, 164, 188); margin-top: 20px; margin-bottom: 20px;">
+            <ui:Label text="Stats:" />
         </ui:VisualElement>
         <ui:VisualElement name="effects" style="flex-grow: 1; justify-content: flex-end; -unity-text-align: upper-left; padding-top: 20px;">
             <ui:Button text="Music" name="music" style="background-color: rgb(146, 188, 139);" />
