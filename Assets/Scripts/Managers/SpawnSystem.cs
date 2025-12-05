@@ -7,13 +7,13 @@ public class SpawnSystem : MonoBehaviour
 
     public void SpawnBubble()
     {
-        float height = cam.orthographicSize;
-        float width = height * cam.aspect;
+        float halfHeight = cam.orthographicSize;
+        float halfWidth = halfHeight * cam.aspect;
 
-        float spawnPointX = Random.Range(-width, width);
-        float spawnPointY = Random.Range(-height, height);
+        float spawnPointX = Random.Range(-halfWidth + (halfWidth * 2 * 0.15f), halfWidth);
+        float spawnPointY = Random.Range(-halfHeight, halfHeight);
 
-        Debug.Log($"Screen Width in World Units: {width}");
+        Debug.Log($"Screen Width in World Units: {halfWidth}");
 
         Vector2 spawnPosition = new Vector2(spawnPointX, spawnPointY);
 
