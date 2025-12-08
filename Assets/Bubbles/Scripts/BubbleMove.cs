@@ -11,9 +11,19 @@ public class BubbleMove : MonoBehaviour
 
     
 
+
     void Start()
     {
-        
+        int rndX = Random.Range(0, 2);
+        int rndY = Random.Range(0, 2);
+        if (rndX == 0)
+        {
+            moveSpeedX *= -1;
+        }  
+        if (rndY == 0)
+        {
+            moveSpeedY *= -1;
+        }
     }
 
     
