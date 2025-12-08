@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// 
+/// </summary>
 public abstract class Poolable : MonoBehaviour
 {
     public abstract void ResetObject();
