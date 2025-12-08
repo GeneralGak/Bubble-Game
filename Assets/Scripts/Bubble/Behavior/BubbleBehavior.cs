@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class BubbleBehavior : MonoBehaviour
 {
+	public Poolable PoolableComponent { protected get; set; }
+
     public virtual void RunOnPointerDown()
     {
     }

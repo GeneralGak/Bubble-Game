@@ -1,11 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 
 /// </summary>
 public abstract class Poolable : MonoBehaviour
 {
+    public UnityEvent<Poolable> removeToPoolEvent = new UnityEvent<Poolable>();
+
+    public void RemoveToPool()
+    {
+        removeToPoolEvent.Invoke(this);
+    }
+
     public abstract void ResetObject();
 }
 
@@ -24,6 +32,9 @@ public class ObjectPooler : MonoBehaviour
         {
 			GameObject newPooledObject = Instantiate(objectToPool);
 
+            Poolable poolableComponent = newPooledObject.GetComponent<Poolable>();
+            if (poolableComponent != null) poolableComponent.removeToPoolEvent.AddListener(RemoveToPool);
+
 			pooledObjects.Push(newPooledObject);
 
             newPooledObject.SetActive(false);
@@ -37,7 +48,10 @@ public class ObjectPooler : MonoBehaviour
 		if (pooledObjects.Count == 0)
         {
             pooledObject = Instantiate(objectToPool, _spawnPosition, _spawnRotation);
-        }
+
+			Poolable poolableComponent = pooledObject.GetComponent<Poolable>();
+			if (poolableComponent != null) poolableComponent.removeToPoolEvent.AddListener(RemoveToPool);
+		}
         else
         {
 			pooledObject = pooledObjects.Pop();
@@ -50,16 +64,12 @@ public class ObjectPooler : MonoBehaviour
 		return pooledObject;
     }
 
-    public void RemoveToPool(GameObject _poolableObject)
+    public void RemoveToPool(Poolable _poolableObject)
     {
-        pooledObjects.Push(_poolableObject);
+        pooledObjects.Push(_poolableObject.gameObject);
 
-		_poolableObject.SetActive(false);
+		_poolableObject.gameObject.SetActive(false);
 
-		Poolable[] poolableComponents = _poolableObject.GetComponents<Poolable>();
-        for (int i = 0; i < poolableComponents.Length; i++)
-        {
-            poolableComponents[i].ResetObject();
-		}
+        _poolableObject.ResetObject();
 	}
 }

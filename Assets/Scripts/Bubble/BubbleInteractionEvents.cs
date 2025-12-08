@@ -1,8 +1,7 @@
-using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class BubbleInteractionEvents : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+public class BubbleInteractionEvents : Poolable, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
 	private BubbleBehavior[] behaviors;
 
@@ -35,6 +34,7 @@ public class BubbleInteractionEvents : MonoBehaviour, IPointerDownHandler, IPoin
 			if (modeName == behavior.BehaviorName())
 			{
 				ActiveBehavior = behavior;
+				ActiveBehavior.PoolableComponent = this;
 				break;
 			}
 		}
@@ -53,5 +53,9 @@ public class BubbleInteractionEvents : MonoBehaviour, IPointerDownHandler, IPoin
 	public void OnPointerUp(PointerEventData eventData)
 	{
 		ActiveBehavior.RunOnPointerUp();
+	}
+
+	public override void ResetObject()
+	{
 	}
 }
