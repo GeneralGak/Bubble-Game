@@ -23,7 +23,7 @@ public class SpawnSystem : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        InvokeRepeating(nameof(SpawnBubble), 0.1f, 0.1f);
+        InvokeRepeating(nameof(SpawnBubble), 2f, 2f);
     }
 
     // Update is called once per frame
