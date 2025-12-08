@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Button text="Gamemode1" name="Gamemode1" style="position: absolute; top: 196px; left: 233px; height: 77px; width: 112px;" />
+    <ui:Button text="Gamemode2" name="Gamemode2" style="position: absolute; top: 196px; left: 390px; height: 77px; width: 112px;" />
+    <ui:Button text="Gamemode3" name="Gamemode3" display-tooltip-when-elided="false" style="position: absolute; top: 304px; left: 313px; width: 112px; height: 77px;" />
+    <ui:Label text="Bubble splash" name="Title" language-direction="Inherit" style="-unity-text-align: upper-center; white-space: normal; width: 308px; height: 51px; position: absolute; top: 101px; left: 212px; font-size: 30px; -unity-font-style: bold-and-italic; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); color: rgb(30, 131, 168);" />
+</ui:UXML>
