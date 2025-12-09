@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
 /// </summary>
 public abstract class Poolable : MonoBehaviour
 {
-    public UnityEvent<Poolable> removeToPoolEvent = new UnityEvent<Poolable>();
+    public UnityEvent<Poolable> removeToPoolEvent { get; private set; } = new UnityEvent<Poolable>();
 
     public void RemoveToPool()
     {
