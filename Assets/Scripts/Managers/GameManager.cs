@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum GameMode
 {
     Pop,
     Expand
+}
+
+public enum GameDifficulty
+{
+	Easy,
+	Hard
 }
 
 public class GameManager : MonoBehaviour
@@ -14,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return instance; } }
     public GameMode CurrentGameMode { get { return setGameMode; } }
+    public UnityEvent<GameModeData> GameModeSettingEvent { get; private set; } = new UnityEvent<GameModeData>();
 
 
 	private void Awake()
@@ -26,10 +34,4 @@ public class GameManager : MonoBehaviour
 
 		instance = this;
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

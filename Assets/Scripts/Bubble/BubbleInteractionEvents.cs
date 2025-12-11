@@ -13,21 +13,21 @@ public class BubbleInteractionEvents : Poolable, IPointerDownHandler, IPointerUp
 		behaviors = GetComponents<BubbleBehavior>();
 	}
 
-	private void Start()
-	{
-		SetActiveBehavior();
-	}
+	//private void Start()
+	//{
+	//	SetActiveBehavior();
+	//}
 
-	private void OnEnable()
-	{
-		if (GameManager.Instance == null) return;
+	//private void OnEnable()
+	//{
+	//	if (GameManager.Instance == null) return;
 
-		SetActiveBehavior();
-	}
+	//	SetActiveBehavior();
+	//}
 
-	private void SetActiveBehavior()
+	public void SetActiveBehavior(GameMode _choosenGameMode)
 	{
-		string modeName = GameManager.Instance.CurrentGameMode.ToString();
+		string modeName = _choosenGameMode.ToString();
 
 		foreach (BubbleBehavior behavior in behaviors)
 		{
