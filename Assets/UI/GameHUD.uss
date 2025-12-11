@@ -1,1 +1,25 @@
-VisualElement {}
+VisualElement {
+}
+
+.bubble:active {
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    flex-basis: auto;
+    flex-grow: 1;
+    transition-duration: 0.3s;
+    opacity: 0;
+    transition-timing-function: ease-in-bounce;
+}
+
+.bubble {
+    background-image: url("project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&guid=f30b41b3a736c0f40925a9f751824e00&type=2#GameHUD");
+    flex-shrink: 1;
+    flex-grow: 0;
+    border-left-color: rgba(55, 55, 55, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-top-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(55, 55, 55, 0);
+    background-color: rgba(255, 255, 255, 0);
+    transition-timing-function: ease-out-bounce;
+    transition-duration: 0s;
+}
