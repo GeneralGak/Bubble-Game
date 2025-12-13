@@ -22,19 +22,24 @@ public class SpawnSystem : MonoBehaviour
 
         Vector2 spawnPosition = new Vector2(spawnPointX, spawnPointY);
 
-        objectPooler.GetPooledObject(spawnPosition, Quaternion.identity).GetComponent<BubbleCore>().SetGameModeData(bubbleData);
+        if(objectPooler.GetPooledObject(spawnPosition, Quaternion.identity, out GameObject pooledObject) && bubbleData != null) 
+        {
+            pooledObject.GetComponent<BubbleCore>().SetGameModeData(bubbleData);
+		}
         //Instantiate(bubble, spawnPosition, Quaternion.identity);
     }
 
     private void SetBubbleData(GameModeData _gameModeData)
     {
+        objectPooler.maxObjects = _gameModeData.maxBubbles;
         bubbleData = _gameModeData;
 		InvokeRepeating(nameof(SpawnBubble), _gameModeData.spawnInterval, _gameModeData.spawnInterval);
 	}
 
 	private void Awake()
 	{
-        GameManager.Instance.GameModeSettingEvent.AddListener(SetBubbleData);
+        if(GameManager.Instance != null) GameManager.Instance.GameModeSettingEvent.AddListener(SetBubbleData);
+        else InvokeRepeating(nameof(SpawnBubble), spawnInterval, spawnInterval);
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created

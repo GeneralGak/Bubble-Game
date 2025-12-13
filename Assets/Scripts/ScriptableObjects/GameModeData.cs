@@ -10,5 +10,6 @@ public class GameModeData : ScriptableObject
     [Header("Bubbles")]
     public float spawnInterval;
     public float bubbleMoveSpeed;
+    public int maxBubbles;
 
 }

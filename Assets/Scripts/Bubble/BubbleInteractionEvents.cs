@@ -1,8 +1,11 @@
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 
 public class BubbleInteractionEvents : Poolable, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
+	[SerializeField] private GameMode defaultGameMode;
+
 	private BubbleBehavior[] behaviors;
 
 	public BubbleBehavior ActiveBehavior { get; private set; }
@@ -11,6 +14,8 @@ public class BubbleInteractionEvents : Poolable, IPointerDownHandler, IPointerUp
 	private void Awake()
 	{
 		behaviors = GetComponents<BubbleBehavior>();
+
+		SetActiveBehavior(defaultGameMode);
 	}
 
 	//private void Start()

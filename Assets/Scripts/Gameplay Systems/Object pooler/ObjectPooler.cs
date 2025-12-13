@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
@@ -21,7 +20,9 @@ public abstract class Poolable : MonoBehaviour
 public class ObjectPooler : MonoBehaviour
 {
     [SerializeField] private GameObject objectToPool;
-    [SerializeField] private int AmountToPool;
+    public int maxObjects;
+
+    private int spawnedObjects = 0;
 
     private Stack<GameObject> pooledObjects = new Stack<GameObject>();
 
@@ -29,7 +30,7 @@ public class ObjectPooler : MonoBehaviour
     void Start()
     {
         // Create a group of objects at start
-        for (int i = 0; i < AmountToPool; i++)
+        for (int i = 0; i < maxObjects; i++)
         {
 			GameObject newPooledObject = Instantiate(objectToPool);
 
@@ -42,8 +43,14 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject(Vector3 _spawnPosition, Quaternion _spawnRotation)
+    public bool GetPooledObject(Vector3 _spawnPosition, Quaternion _spawnRotation, out GameObject _pooledObject)
     {
+        if (spawnedObjects == maxObjects)
+        {
+            _pooledObject = null;
+            return false;
+        }
+
         GameObject pooledObject;
 
 		if (pooledObjects.Count == 0)
@@ -62,7 +69,10 @@ public class ObjectPooler : MonoBehaviour
 			pooledObject.SetActive(true);
 		}
 
-		return pooledObject;
+        spawnedObjects++;
+        _pooledObject = pooledObject;
+
+		return true;
     }
 
     public void RemoveToPool(Poolable _poolableObject)
@@ -72,5 +82,7 @@ public class ObjectPooler : MonoBehaviour
 		_poolableObject.gameObject.SetActive(false);
 
         _poolableObject.ResetObject();
+
+		spawnedObjects--;
 	}
 }
