@@ -37,14 +37,14 @@ public class BubbleMove : MonoBehaviour
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         
         //top & bottom edge
-        if (viewPos.y > 1f || viewPos.y < 0f)
+        if (viewPos.y > 0.955f && moveSpeedY > 0 || viewPos.y < 0.045f && moveSpeedY < 0)
         {
             GetComponent<Animation>().Play("bubbleBounceTopNBottom");
             moveSpeedY *= -1f;
         }
 
         //left & right edge
-        if (viewPos.x > 1f || viewPos.x < 0f)
+        if (viewPos.x > 0.975f && moveSpeedX > 0 || viewPos.x < 0.025f && moveSpeedX < 0)
         {
             GetComponent<Animation>().Play("bubbleBounceSide");
             moveSpeedX *= -1f;
