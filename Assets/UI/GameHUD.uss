@@ -20,8 +20,8 @@ VisualElement {
     transition-timing-function: ease-out-circ;
     transition-duration: 1s;
     transition-property: scale;
-    color: rgb(206, 224, 236);
-    -unity-background-image-tint-color: rgb(121, 163, 213);
+    color: rgb(121, 163, 213);
+    -unity-background-image-tint-color: rgb(111, 149, 195);
     background-color: rgba(255, 255, 255, 0);
 }
 
@@ -47,8 +47,8 @@ VisualElement {
     align-items: stretch;
     justify-content: flex-start;
     -unity-text-align: upper-left;
-    color: rgb(206, 224, 236);
-    -unity-background-image-tint-color: rgb(121, 163, 213);
+    color: rgb(116, 157, 205);
+    -unity-background-image-tint-color: rgb(109, 147, 192);
 }
 
 .sfx:hover {
