@@ -1,15 +1,15 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GameHUD.uss?fileID=7433441132597879392&amp;guid=612448082c967c54abe63776bfd60dea&amp;type=3#GameHUD" />
-    <ui:VisualElement name="main" style="flex-grow: 1; right: auto; left: auto; width: 15%; border-right-width: 8px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-right-color: rgb(59, 92, 190); padding-top: 20px; justify-content: space-between; padding-bottom: 20px; padding-left: 10px; padding-right: 10px; flex-shrink: 1; flex-basis: auto; align-items: stretch;">
+    <ui:VisualElement name="main" style="flex-grow: 1; right: auto; left: auto; width: 15%; border-right-width: 8px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-right-color: rgb(193, 212, 226); padding-top: 20px; justify-content: space-between; padding-bottom: 20px; padding-left: 10px; padding-right: 10px; flex-shrink: 1; flex-basis: auto; align-items: stretch;">
         <ui:VisualElement name="back" style="flex-grow: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; justify-content: flex-start; background-image: none; background-color: rgba(0, 0, 0, 0); position: relative; flex-shrink: 1; flex-basis: 25%;">
-            <ui:Button text="Back" name="backButton" class="bubble" style="background-size: 100% 100%; flex-grow: 1; flex-shrink: 0;" />
+            <ui:Button text="↩" name="backButton" class="bubble" style="background-size: 100% 100%; flex-grow: 1; flex-shrink: 0; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=df86185b514590b429d71619642a9296&amp;type=3#NotInter-Regular&quot;); -unity-font-style: normal; font-size: 32px; -unity-text-align: middle-center; justify-content: center;" />
         </ui:VisualElement>
-        <ui:VisualElement name="text" class="bubble" style="align-self: auto;">
-            <ui:Label text="Stats:" style="align-self: auto; justify-content: flex-start; align-content: auto; flex-grow: 1; align-items: auto; -unity-text-align: upper-center; flex-shrink: 1;" />
+        <ui:VisualElement name="stats" class="bubble" style="visibility: visible; display: flex; flex-grow: 1; -unity-text-align: upper-left;">
+            <ui:Label text="Stats:" style="align-self: auto; justify-content: flex-start; align-content: auto; flex-grow: 1; align-items: auto; -unity-text-align: middle-center; flex-shrink: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement name="effects" style="flex-grow: 0; justify-content: flex-end; -unity-text-align: upper-left; padding-top: 0; flex-shrink: 1;">
-            <ui:Button text="Music" name="music" class="bubble" style="flex-shrink: 0;" />
-            <ui:Button text="Sound" name="sound" class="bubble" style="flex-shrink: 0;" />
+        <ui:VisualElement name="effects" class="sfx" style="flex-grow: 0; justify-content: flex-end; -unity-text-align: upper-left; padding-top: 0; flex-shrink: 1; align-items: stretch;">
+            <ui:Toggle label="♪" name="Toggle" class="toggle" />
+            <ui:Toggle label="Lyd" name="Toggle" class="toggle" style="-unity-font-style: normal;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

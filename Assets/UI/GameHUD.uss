@@ -3,12 +3,10 @@ VisualElement {
 
 .bubble:active {
     background-size: 100% 100%;
-    flex-shrink: 0;
-    flex-basis: auto;
-    flex-grow: 1;
-    transition-duration: 0.3s;
-    opacity: 0;
-    transition-timing-function: ease-in-bounce;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-property: visibility;
+    visibility: hidden;
 }
 
 .bubble {
@@ -19,7 +17,76 @@ VisualElement {
     border-right-color: rgba(55, 55, 55, 0);
     border-top-color: rgba(55, 55, 55, 0);
     border-bottom-color: rgba(55, 55, 55, 0);
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    transition-property: scale;
+    color: rgb(206, 224, 236);
+    -unity-background-image-tint-color: rgb(121, 163, 213);
     background-color: rgba(255, 255, 255, 0);
-    transition-timing-function: ease-out-bounce;
-    transition-duration: 0s;
+}
+
+.bubble:hover {
+    scale: 1.1 1.1;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-circ;
+    transition-property: scale;
+}
+
+.sfx {
+    background-image: url("project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&guid=f30b41b3a736c0f40925a9f751824e00&type=2#GameHUD");
+    flex-shrink: 1;
+    flex-grow: 0;
+    border-left-color: rgba(55, 55, 55, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-top-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(55, 55, 55, 0);
+    background-color: rgba(255, 255, 255, 0);
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    transition-property: scale;
+    align-items: stretch;
+    justify-content: flex-start;
+    -unity-text-align: upper-left;
+    color: rgb(206, 224, 236);
+    -unity-background-image-tint-color: rgb(121, 163, 213);
+}
+
+.sfx:hover {
+    scale: 1.1 1.1;
+}
+
+#main > #effects > .unity-toggle > .unity-toggle__input {
+    display: none;
+    visibility: visible;
+}
+
+#main > #effects > .unity-toggle > .unity-toggle__label {
+    flex-direction: column;
+    -unity-text-align: upper-center;
+    display: flex;
+    visibility: visible;
+}
+
+#main > #effects > .unity-toggle {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
+.toggle:checked {
+    opacity: 0.5;
+    -unity-font-style: normal;
+    font-size: 16px;
+    color: rgb(206, 224, 236);
+}
+
+.toggle {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    font-size: 32px;
+}
+
+.toggle:hover {
+    scale: 1.1 1.1;
 }
