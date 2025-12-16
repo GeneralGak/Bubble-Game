@@ -18,10 +18,10 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
 		visualElement = GetComponent<UIDocument>().rootVisualElement;
-        GameMode1 = visualElement.Q<Button>("Gamemode1");
+        GameMode1 = visualElement.Q<Button>("playButton");
         GameMode1.clicked += StartGameMode1;
-		GameMode2 = visualElement.Q<Button>("Gamemode2");
-		GameMode3 = visualElement.Q<Button>("Gamemode3");
+		//GameMode2 = visualElement.Q<Button>("Gamemode2");
+		//GameMode3 = visualElement.Q<Button>("Gamemode3");
 
         if(!SceneManager.GetSceneByName("Managers").isLoaded) SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
         if(!SceneManager.GetSceneByName("GameHUD").isLoaded) SceneManager.LoadScene("GameHUD", LoadSceneMode.Additive);
