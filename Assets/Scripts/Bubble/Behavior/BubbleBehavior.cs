@@ -2,9 +2,19 @@ using UnityEngine;
 
 public abstract class BubbleBehavior : MonoBehaviour
 {
+	protected MeshRenderer bubbleMesh;
+	protected ParticleSystem popParticles;
+
 	public Poolable PoolableComponent { protected get; set; }
 
-    public virtual void RunOnPointerDown()
+
+	private void Start()
+	{
+		bubbleMesh = GetComponent<MeshRenderer>();
+		popParticles = GetComponentInChildren<ParticleSystem>();
+	}
+
+	public virtual void RunOnPointerDown()
     {
     }
 
@@ -14,6 +24,11 @@ public abstract class BubbleBehavior : MonoBehaviour
 
 	public virtual void RunOnPointerUp()
 	{
+	}
+
+	public void SetBubbleMesh(bool _setEnabled)
+	{
+		bubbleMesh.enabled = _setEnabled;
 	}
 
 	public string BehaviorName()

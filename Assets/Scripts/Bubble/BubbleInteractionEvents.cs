@@ -62,5 +62,6 @@ public class BubbleInteractionEvents : Poolable, IPointerDownHandler, IPointerUp
 
 	public override void ResetObject()
 	{
+		ActiveBehavior.SetBubbleMesh(true);
 	}
 }

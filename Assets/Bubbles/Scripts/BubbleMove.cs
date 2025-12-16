@@ -36,13 +36,40 @@ public class BubbleMove : MonoBehaviour
         //top & bottom edge
         if (viewPos.y > 1f || viewPos.y < 0f)
         {
-            moveSpeedY *= -1f;
-        }
+            //moveSpeedY *= -1f;
+			ChangeDirection(new Vector2(1f, -1f));
+		}
 
         //left & right edge
         if (viewPos.x > 1f || viewPos.x < 0f)
         {
-            moveSpeedX *= -1f;
+            //moveSpeedX *= -1f;
+            ChangeDirection(new Vector2(-1f, 1f));
         }
     }
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.layer != LayerMask.NameToLayer("Bubble")) return;
+
+		Vector2 collisionDirection = (other.transform.position - transform.position).normalized;
+
+		//top & bottom edge
+		if (collisionDirection.y > 1f || collisionDirection.y < 0f)
+		{
+			ChangeDirection(new Vector2(1f, -1f));
+		}
+
+		//left & right edge
+		if (collisionDirection.x > 1f || collisionDirection.x < 0f)
+		{
+			ChangeDirection(new Vector2(-1f, 1f));
+		}
+	}
+
+    private void ChangeDirection(Vector2 _newDirection)
+    {
+        moveSpeedX *= _newDirection.x;
+        moveSpeedY *= _newDirection.y;
+	}
 }
