@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/GameHUD.uss?fileID=7433441132597879392&amp;guid=612448082c967c54abe63776bfd60dea&amp;type=3#GameHUD" />
     <ui:VisualElement name="main" style="flex-grow: 1; justify-content: center; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/ComicNeue-Bold.ttf?fileID=12800000&amp;guid=24575eff8fff5954e9c1dfc078020a41&amp;type=3#ComicNeue-Bold&quot;);">
         <ui:VisualElement name="Title" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; right: 0%;">
-            <ui:Label text="popdebubbles" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/ComicNeue-Regular.ttf?fileID=12800000&amp;guid=0d6005bd0e7f430468478981cc6a081c&amp;type=3#ComicNeue-Regular&quot;); font-size: 64px; -unity-font-style: bold; color: rgb(206, 224, 236); margin-top: 25px;" />
+            <ui:Label text="Popdebubbles" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/ComicNeue-Regular.ttf?fileID=12800000&amp;guid=0d6005bd0e7f430468478981cc6a081c&amp;type=3#ComicNeue-Regular&quot;); font-size: 64px; -unity-font-style: bold; color: rgb(206, 224, 236); margin-top: 25px;" />
         </ui:VisualElement>
         <ui:VisualElement name="play">
             <ui:Button text="Spil" name="playButton" class="bubble" style="align-self: center; font-size: 58px; border-top-width: 128px; border-right-width: 128px; border-bottom-width: 128px; border-left-width: 128px; color: rgb(255, 255, 255);" />
