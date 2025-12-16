@@ -4,11 +4,12 @@ using static UnityEngine.GraphicsBuffer;
 public class BubbleMove : MonoBehaviour
 {
     
-    //Camera cam = Camera.main.WorldToViewportPoint(Component.position);
+    //
 
     public float moveSpeedX = 1f;
     public float moveSpeedY = 1f;
 
+    
     
 
 
@@ -24,6 +25,8 @@ public class BubbleMove : MonoBehaviour
         {
             moveSpeedY *= -1;
         }
+
+        //Animation animation = bubble.GetComponent<Animation>();
     }
 
     
@@ -34,16 +37,18 @@ public class BubbleMove : MonoBehaviour
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         
         //top & bottom edge
-        if (viewPos.y > 1f || viewPos.y < 0f)
+        if (viewPos.y > 0.955f && moveSpeedY > 0 || viewPos.y < 0.045f && moveSpeedY < 0)
         {
             //moveSpeedY *= -1f;
+			GetComponent<Animation>().Play("bubbleBounceTopNBottom");
 			ChangeDirection(new Vector2(1f, -1f));
 		}
 
         //left & right edge
-        if (viewPos.x > 1f || viewPos.x < 0f)
+        if (viewPos.x > 0.975f && moveSpeedX > 0 || viewPos.x < 0.025f && moveSpeedX < 0)
         {
             //moveSpeedX *= -1f;
+			GetComponent<Animation>().Play("bubbleBounceSide");
             ChangeDirection(new Vector2(-1f, 1f));
         }
     }
