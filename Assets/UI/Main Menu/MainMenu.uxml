@@ -1,6 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Button text="Gamemode1" name="Gamemode1" style="position: absolute; top: 50%; left: 50%; height: 77px; width: 112px; bottom: auto; right: auto; align-items: center; align-self: center; align-content: center;" />
-    <ui:Button text="Gamemode2" name="Gamemode2" style="position: absolute; top: 35%; left: 45%; height: 77px; width: 112px;" />
-    <ui:Button text="Gamemode3" name="Gamemode3" display-tooltip-when-elided="false" style="position: absolute; top: 50%; left: 40%; width: 112px; height: 77px; bottom: auto; right: auto;" />
-    <ui:Label text="Bubble splash" name="Title" language-direction="Inherit" style="-unity-text-align: upper-center; white-space: normal; width: 308px; height: 51px; position: absolute; top: 25%; left: 38%; font-size: 30px; -unity-font-style: bold-and-italic; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); color: rgb(30, 131, 168); align-self: center; align-items: stretch; align-content: center;" />
+    <Style src="project://database/Assets/UI/GameHUD.uss?fileID=7433441132597879392&amp;guid=612448082c967c54abe63776bfd60dea&amp;type=3#GameHUD" />
+    <ui:VisualElement name="main" style="flex-grow: 1; justify-content: center;">
+        <ui:VisualElement name="play">
+            <ui:Button text="Spil" name="playButton" class="bubble" style="align-self: center; font-size: 32px; border-top-width: 128px; border-right-width: 128px; border-bottom-width: 128px; border-left-width: 128px; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:ToggleButtonGroup label="Sværhedsgrad" value="00" name="ToggleButtonGroup" allow-empty-selection="true" focusable="false" style="display: flex; flex-direction: column; align-self: center; font-size: 24px; -unity-font-style: normal; color: rgb(255, 255, 255);">
+            <ui:Button text="Nem" name="easyButton" class="toggle" style="background-image: url(&quot;project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&amp;guid=f30b41b3a736c0f40925a9f751824e00&amp;type=2#GameHUD&quot;); border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); padding-top: 42px; padding-right: 42px; padding-bottom: 42px; padding-left: 42px;" />
+            <ui:Button text="Svær" name="hardButton" enabled="true" class="toggle" style="background-image: url(&quot;project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&amp;guid=f30b41b3a736c0f40925a9f751824e00&amp;type=2#GameHUD&quot;); border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); padding-top: 41px; padding-right: 41px; padding-bottom: 41px; padding-left: 41px;" />
+        </ui:ToggleButtonGroup>
+    </ui:VisualElement>
 </ui:UXML>

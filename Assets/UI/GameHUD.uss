@@ -1,1 +1,148 @@
-VisualElement {}
+VisualElement {
+}
+
+.bubble:active {
+    background-size: 100% 100%;
+    visibility: visible;
+    opacity: 0;
+    transition-timing-function: ease-out-cubic;
+    transition-duration: 1s;
+    transition-property: opacity;
+}
+
+.bubble {
+    background-image: url("project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&guid=f30b41b3a736c0f40925a9f751824e00&type=2#GameHUD");
+    flex-shrink: 1;
+    flex-grow: 0;
+    border-left-color: rgba(55, 55, 55, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-top-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(55, 55, 55, 0);
+    color: rgb(121, 163, 213);
+    -unity-background-image-tint-color: rgb(111, 149, 195);
+    background-color: rgba(255, 255, 255, 0);
+    transition-duration: 1s;
+    transition-timing-function: ease-out-circ;
+    transition-property: opacity;
+}
+
+.bubble:hover {
+    scale: 1.1 1.1;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-circ;
+    transition-property: scale;
+}
+
+.sfx {
+    background-image: url("project://database/Assets/UI/GameHUD.renderTexture?fileID=8400000&guid=f30b41b3a736c0f40925a9f751824e00&type=2#GameHUD");
+    flex-shrink: 1;
+    flex-grow: 0;
+    border-left-color: rgba(55, 55, 55, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-top-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(55, 55, 55, 0);
+    background-color: rgba(255, 255, 255, 0);
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    transition-property: scale;
+    align-items: stretch;
+    justify-content: flex-start;
+    -unity-text-align: upper-left;
+    color: rgb(116, 157, 205);
+    -unity-background-image-tint-color: rgb(109, 147, 192);
+}
+
+.sfx:hover {
+    scale: 1.1 1.1;
+}
+
+.opacity:checked {
+    opacity: 0.5;
+}
+
+.opacity {
+}
+
+#main > #difficulty > .unity-toggle > .unity-toggle__input {
+    display: none;
+    visibility: visible;
+}
+
+#main > #difficulty > .unity-toggle > .unity-toggle__label {
+    flex-direction: column;
+    -unity-text-align: upper-center;
+    display: flex;
+    visibility: visible;
+}
+
+#main > #difficulty > .unity-toggle {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    visibility: visible;
+}
+
+.toggle:checked {
+    opacity: 1;
+    -unity-font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+.toggle {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    font-size: 16px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.toggle:hover {
+    scale: 1.1 1.1;
+}
+
+#main > #effects > .unity-toggle {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    visibility: visible;
+}
+
+#main > #effects > .unity-toggle > .unity-toggle__label {
+    flex-direction: column;
+    -unity-text-align: upper-center;
+    display: flex;
+    visibility: visible;
+}
+
+#main > #effects > .unity-toggle > .unity-toggle__input {
+    display: none;
+    visibility: visible;
+}
+
+.unity-toggle-button-group > .unity-base-field__label {
+    display: flex;
+    -unity-text-align: upper-center;
+}
+
+#main > #ToggleButtonGroup > #unity-toggle-button-group__container {
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.opacity {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    font-size: 16px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.opacity:hover {
+    scale: 1.1 1.1;
+}
