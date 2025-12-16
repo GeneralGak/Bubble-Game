@@ -3,10 +3,11 @@ VisualElement {
 
 .bubble:active {
     background-size: 100% 100%;
+    visibility: visible;
+    opacity: 0;
+    transition-timing-function: ease-out-cubic;
     transition-duration: 1s;
-    transition-timing-function: ease;
-    transition-property: visibility;
-    visibility: hidden;
+    transition-property: opacity;
 }
 
 .bubble {
@@ -17,12 +18,12 @@ VisualElement {
     border-right-color: rgba(55, 55, 55, 0);
     border-top-color: rgba(55, 55, 55, 0);
     border-bottom-color: rgba(55, 55, 55, 0);
-    transition-timing-function: ease-out-circ;
-    transition-duration: 1s;
-    transition-property: scale;
     color: rgb(121, 163, 213);
     -unity-background-image-tint-color: rgb(111, 149, 195);
     background-color: rgba(255, 255, 255, 0);
+    transition-duration: 1s;
+    transition-timing-function: ease-out-circ;
+    transition-property: opacity;
 }
 
 .bubble:hover {
@@ -55,8 +56,57 @@ VisualElement {
     scale: 1.1 1.1;
 }
 
-#main > #effects > .unity-toggle > .unity-toggle__input {
+.opacity:checked {
+    opacity: 0.5;
+}
+
+.opacity {
+}
+
+#main > #difficulty > .unity-toggle > .unity-toggle__input {
     display: none;
+    visibility: visible;
+}
+
+#main > #difficulty > .unity-toggle > .unity-toggle__label {
+    flex-direction: column;
+    -unity-text-align: upper-center;
+    display: flex;
+    visibility: visible;
+}
+
+#main > #difficulty > .unity-toggle {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    visibility: visible;
+}
+
+.toggle:checked {
+    opacity: 1;
+    -unity-font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+.toggle {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 1s;
+    font-size: 16px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.toggle:hover {
+    scale: 1.1 1.1;
+}
+
+#main > #effects > .unity-toggle {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
     visibility: visible;
 }
 
@@ -67,26 +117,32 @@ VisualElement {
     visibility: visible;
 }
 
-#main > #effects > .unity-toggle {
-    align-items: auto;
-    flex-direction: row;
-    justify-content: center;
+#main > #effects > .unity-toggle > .unity-toggle__input {
+    display: none;
+    visibility: visible;
+}
+
+.unity-toggle-button-group > .unity-base-field__label {
     display: flex;
+    -unity-text-align: upper-center;
 }
 
-.toggle:checked {
-    opacity: 0.5;
-    -unity-font-style: normal;
-    font-size: 16px;
-    color: rgb(206, 224, 236);
+#main > #ToggleButtonGroup > #unity-toggle-button-group__container {
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    color: rgb(255, 255, 255);
 }
 
-.toggle {
+.opacity {
     transition-timing-function: ease-out-circ;
     transition-duration: 1s;
-    font-size: 32px;
+    font-size: 16px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.toggle:hover {
+.opacity:hover {
     scale: 1.1 1.1;
 }
