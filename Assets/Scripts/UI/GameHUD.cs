@@ -6,6 +6,9 @@ public class GameHUD : MonoBehaviour
 {
 	private VisualElement visualElement;
 	private Button Exit;
+	private Toggle disableSound;
+	private Toggle disableMusic;
+	private bool inGame = false;
 
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,25 +16,41 @@ public class GameHUD : MonoBehaviour
     {
 		visualElement = GetComponent<UIDocument>().rootVisualElement;
 		Exit = visualElement.Q<Button>("backButton");
-		Exit.clicked += QuitGameMode;
+		Exit.clicked += OnQuitButtonPressed;
+		disableSound = visualElement.Q<Toggle>("SoundToggle");
+		disableMusic = visualElement.Q<Toggle>("MusicToggle");
+
+		GameManager.Instance.GameModeSettingEvent.AddListener(SetInGame);
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void SetInGame(GameModeData _gameData)
+	{
+		inGame = _gameData != null;
+	}
+
+	private void OnQuitButtonPressed()
+	{
+		if (inGame) QuitGameMode();
+		else QuitGame();
+	}
 
 	private void QuitGameMode()
 	{
 		SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
 		SceneManager.sceneLoaded += SetActiveScene;
 		SceneManager.UnloadSceneAsync("Bubble pop");
+		SetInGame(null);
+	}
+
+	private void QuitGame()
+	{
+		Application.Quit();
 	}
 
 	private void SetActiveScene(Scene _loadedScene, LoadSceneMode _loadMode)
 	{
 		SceneManager.sceneLoaded -= SetActiveScene;
-		SceneManager.SetActiveScene(_loadedScene);
+		Exit.BringToFront();
+		//SceneManager.SetActiveScene(_loadedScene);
 	}
 }

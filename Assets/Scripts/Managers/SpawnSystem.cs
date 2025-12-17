@@ -5,18 +5,18 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] private ObjectPooler objectPooler;
     [SerializeField] private float spawnInterval = 1;
 
-    private GameModeData bubbleData;
-
     public GameObject bubble;
     Camera cam;
+    private GameModeData bubbleData;
+    private float colliderRadius;
 
     public void SpawnBubble()
     {
         float halfHeight = cam.orthographicSize;
         float halfWidth = halfHeight * cam.aspect;
 
-        float spawnPointX = Random.Range(-halfWidth + (halfWidth * 2 * 0.15f), halfWidth);
-        float spawnPointY = Random.Range(-halfHeight, halfHeight);
+        float spawnPointX = Random.Range(-halfWidth + colliderRadius + (halfWidth * 2 * 0.15f), halfWidth - colliderRadius);
+        float spawnPointY = Random.Range(-halfHeight + colliderRadius, halfHeight - colliderRadius);
 
         Debug.Log($"Screen Width in World Units: {halfWidth}");
 
@@ -46,6 +46,8 @@ public class SpawnSystem : MonoBehaviour
 	void Start()
     {
         cam = Camera.main;
+
+        colliderRadius = bubble.GetComponent<SphereCollider>().radius;
         //InvokeRepeating(nameof(SpawnBubble), spawnInterval, spawnInterval);
     }
 

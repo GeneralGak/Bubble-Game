@@ -35,9 +35,9 @@ public class BubbleMove : MonoBehaviour
         transform.Translate(moveSpeedX * Time.deltaTime, moveSpeedY * Time.deltaTime, 0);
         
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
-        
-        //top & bottom edge
-        if (viewPos.y > 0.955f && moveSpeedY > 0 || viewPos.y < 0.045f && moveSpeedY < 0)
+
+		//top & bottom edge
+		if (viewPos.y > 0.955f && moveSpeedY > 0 || viewPos.y < 0.045f && moveSpeedY < 0)
         {
             //moveSpeedY *= -1f;
 			GetComponent<Animation>().Play("bubbleBounceTopNBottom");
@@ -45,7 +45,7 @@ public class BubbleMove : MonoBehaviour
 		}
 
         //left & right edge
-        if (viewPos.x > 0.975f && moveSpeedX > 0 || viewPos.x < 0.025f && moveSpeedX < 0)
+        if (viewPos.x > 0.975f && moveSpeedX > 0 || viewPos.x < 0.025f + (1 * 0.15f) && moveSpeedX < 0)
         {
             //moveSpeedX *= -1f;
 			GetComponent<Animation>().Play("bubbleBounceSide");
